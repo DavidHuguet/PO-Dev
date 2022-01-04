@@ -1,2 +1,4 @@
 dockerairflow/terraform-instanciation/.terraform/*
 dockerairflow/terraform-registry/.terraform/*
+dockerairflow/logs/dag_processor_manager/dag_processor_manager.log
+.gitignore

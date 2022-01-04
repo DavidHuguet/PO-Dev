@@ -7,17 +7,17 @@ variable "resource_group_name" {
 }
 
 variable "registry_name" {
-  default = "PODatabaseDevContainerRegistry"
+  default = "podatabasedevcontainerregistry"
 }
 
 variable "resource_group_location" {
   default = "francecentral"
-} 
+}
 
 variable "docker_directory" {
   default = "/home/david-archi-volt/Code/plasticorigins-ops-db/dockerairflow"
 }
 
 variable "docker_image" {
-  default = "apache/airflow:2.2.2"
+  default = "apache/airflow:2.2.3"
 }

@@ -23,11 +23,4 @@ Related
 
 HOWTO
 <img url="https://res.cloudinary.com/practicaldev/image/fetch/s--fl64gXiL--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jr1mb912yznjlzojealm.png"></img>
-
-Copier coller à garder
-  image_registry_credential {
-    server   = data.terraform_remote_state.registry.outputs.container-registry-server-name
-    username = data.terraform_remote_state.registry.outputs.container-registry-admin-user-name
-    password = data.terraform_remote_state.registry.outputs.container-registry-admin-password // We should use Vault to reterive the password
-
-  }
+- make apply

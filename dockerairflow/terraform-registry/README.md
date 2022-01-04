@@ -21,6 +21,5 @@ Related
 - terraform scripts 2/2 to deploy docker image in container instance
 
 HOWTO
-- compose the docker image 
-- modify variable.tf file
-- sh : terraform apply
+- change the REP_HOME variable in Makefile
+- make all

@@ -3,7 +3,7 @@ init:
 	terraform init
 
 .PHONY: plan
-plan:
+plan: init
 	terraform plan
 
 .PHONY: apply
@@ -15,7 +15,7 @@ format:
 	terraform fmt
 
 .PHONY: validate
-validate:
+validate: plan
 	terraform validate
 
 .PHONY: destroy
@@ -29,3 +29,6 @@ refresh:
 .PHONY: checkov
 checkov:
 	checkov --directory . 
+
+.PHONY: all
+all : apply
