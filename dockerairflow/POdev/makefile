@@ -17,6 +17,7 @@ push:
 	awk -v AZURE_URL=${AZURE_URL} -v AZURE_REGISTRY_NAME=$(AZURE_REGISTRY_NAME) -f ./push.awk ./dockerimage.tmp > ./dockerpush.sh
 	chmod 755 ./dockerpush.sh
 	./dockerpush.sh
+	#
 instanciate:
 #TBD
 
