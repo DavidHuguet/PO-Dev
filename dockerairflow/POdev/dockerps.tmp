@@ -1,0 +1,8 @@
+CONTAINER ID   IMAGE                  COMMAND                  CREATED             STATUS                         PORTS                                                 NAMES
+959ec9f40fc9   apache/airflow:2.2.3   "/usr/bin/dumb-init …"   About an hour ago   Up About an hour (healthy)     0.0.0.0:8080->8080/tcp, :::8080->8080/tcp             podev_airflow-webserver_1
+7ea3d76393f2   apache/airflow:2.2.3   "/usr/bin/dumb-init …"   About an hour ago   Up About an hour (healthy)     0.0.0.0:5555->5555/tcp, :::5555->5555/tcp, 8080/tcp   podev_flower_1
+c68dce8ec794   apache/airflow:2.2.3   "/usr/bin/dumb-init …"   About an hour ago   Up About an hour (unhealthy)   8080/tcp                                              podev_airflow-worker_1
+5044542dc38f   apache/airflow:2.2.3   "/usr/bin/dumb-init …"   About an hour ago   Up About an hour (unhealthy)   8080/tcp                                              podev_airflow-scheduler_1
+cd4ffcc24046   apache/airflow:2.2.3   "/usr/bin/dumb-init …"   About an hour ago   Up About an hour (unhealthy)   8080/tcp                                              podev_airflow-triggerer_1
+62fe7fca9861   redis:latest           "docker-entrypoint.s…"   About an hour ago   Up About an hour (healthy)     6379/tcp                                              podev_redis_1
+3a4f449f57d1   postgres:13            "docker-entrypoint.s…"   About an hour ago   Up About an hour (healthy)     5432/tcp                                              podev_postgres_1

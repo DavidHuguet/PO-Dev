@@ -1,5 +1,7 @@
-REP_HOME=/home/david-archi-volt/Code/plasticorigins-ops-db/dockerairflow
-IMAGE_NAME=azurecr.io/apache/airflow:2.2.2
+REP_HOME=/home/david/Code/PO-Dev/PO-Dev/dockerairflow
+IMAGE_NAME_AIRFLOW=azurecr.io/apache/airflow:2.2.3
+IMAGE_NAME_REDIS=azurecr.io/redis
+IMAGE_NAME_POSTGRES=azurecr.io/postgres:13
 REGISTRY_NAME=podatabasedevcontainerregistry
 
 .PHONY: init
@@ -7,11 +9,11 @@ init:
 	terraform init
 
 .PHONY: plan
-plan:
+plan: init
 	terraform plan
 
 .PHONY: validate
-validate:
+validate: plan
 	terraform validate
 
 .PHONY: apply
@@ -40,9 +42,14 @@ az-login-registry: apply ## login into the Azure using the username and password
 
 .PHONY: build-push-docker-image
 build-push-docker-image: az-login-registry
-	cd $(REP_HOME) && docker build -t $(REGISTRY_NAME).$(IMAGE_NAME) .
-	docker tag $(REGISTRY_NAME).$(IMAGE_NAME) $(REGISTRY_NAME).$(IMAGE_NAME)
-	docker push $(REGISTRY_NAME).$(IMAGE_NAME)
-
+	cd $(REP_HOME) && docker build -t $(REGISTRY_NAME).$(IMAGE_NAME_AIRFLOW) .
+	cd $(REP_HOME) && docker build -t $(REGISTRY_NAME).$(IMAGE_NAME_REDIS) .
+	cd $(REP_HOME) && docker build -t $(REGISTRY_NAME).$(IMAGE_NAME_POSTGRES) .
+	docker tag $(REGISTRY_NAME).$(IMAGE_NAME_AIRFLOW) $(REGISTRY_NAME).$(IMAGE_NAME_AIRFLOW)
+	docker push $(REGISTRY_NAME).$(IMAGE_NAME_AIRFLOW)
+	docker tag $(REGISTRY_NAME).$(IMAGE_NAME_REDIS) $(REGISTRY_NAME).$(IMAGE_NAME_REDIS)
+	docker push $(REGISTRY_NAME).$(IMAGE_NAME_REDIS)
+	docker tag $(REGISTRY_NAME).$(IMAGE_NAME_POSTGRES) $(REGISTRY_NAME).$(IMAGE_NAME_POSTGRES)
+	docker push $(REGISTRY_NAME).$(IMAGE_NAME_POSTGRES)
 .PHONY: all
 all: build-push-docker-image

@@ -15,14 +15,30 @@ variable "resource_group_location" {
 }
 
 variable "instance_name" {
-  default = "podatabasedevcontainerregistry"
+  default = "podatabasedevcontainerinstances"
 }
 
-variable "container_name" {
-  default = "podatabasedevairflowcontainer"
+variable "container_name_airflow" {
+  default = "airflow"
 }
 
-variable "containerimage_name" {
-  default = "apache/airflow:2.2.2"
+variable "container_name_redis" {
+  default = "redis"
 }
 
+variable "container_name_postgres" {
+  default = "postgres"
+}
+
+
+variable "containerimage_name_airflow" {
+  default = "apache/airflow:2.2.3"
+}
+
+variable "containerimage_name_redis" {
+  default = "redis:latest"
+}
+
+variable "containerimage_name_postgres" {
+  default = "postgres:13"
+}
