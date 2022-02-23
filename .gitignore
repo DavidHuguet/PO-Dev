@@ -3,3 +3,4 @@ dockerairflow/terraform-registry/.terraform/*
 dockerairflow/logs/dag_processor_manager/dag_processor_manager.log
 .gitignore
 dockerairflow/quickstart/logs/*
+*.log
